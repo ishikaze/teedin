@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #ffffff;
+}
+
+.sorter-container {
+    display: flex;
+    padding: 1em;
+}
+
+.sorter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 5em;
+}
+
+.sorter i {
+    font-size: 1.5em;
+    padding-bottom: .25em;
+}
+
+.sorter span {
+    font-size: .75em;
+}
+
+.button {
+    background-color: #FFF;
+    color: black;
+    border: 1px solid #cecece;
+    padding: .5em;
+    margin: .5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #dfdfdf;
+}
+
+.rounded {
+    border-radius: 1em;
+}
+
+.listing-title {
+    font-size: 1.75em;
+    margin: .25em 1em;
+}
+
+.listing-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    gap: 1em;
+    padding: 1em;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.listing-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.listing {
+    background-color: #ffffff;
+    border: 1px solid #cecece;
+    border-radius: 1em;
+    text-align: center;
+    min-width: 10em;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.listing img {
+    width: 100%;
+}
+
+.listing h2 {
+    font-size: 1em;
+    margin: 0 0 .25em .75em;
+    justify-self: start;
+}
+
+.listing p {
+    font-size: .75em;
+    margin: 0 0 .5em .75em;
+    justify-self: start;
+    color: #585858;
+}
+
+.show-more {
+    background-color: #f0f0f0;
+    border: 1px solid #cecece;
+    border-radius: 1em;
+    padding: 1em;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-more:hover {
+    background-color: #dfdfdf;
+}
+
+#splash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.7s;
+}
+
+#splash-logo {
+    width: 120px;
+    height: 120px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+body.splashing > *:not(#splash-overlay) {
+    display: none !important;
+}
