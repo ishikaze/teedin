@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   document.body.classList.add('splashing');
   const splashOverlay = document.getElementById('splash-overlay');
   const splashLogo = document.getElementById('splash-logo');
+  const splashVersion = document.getElementById('splash-version');
   // Prepare image URLs for all sections
   const containers = document.querySelectorAll('.listing-container');
   let globalImageOffset = 0;
@@ -57,17 +58,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
     globalImageOffset += 10;
   }
-  // Fade in logo
+  // Fade in logo and version
   setTimeout(() => {
     splashLogo.style.opacity = '1';
+    splashVersion.style.opacity = '1';
   }, 300);
   // Preload images while splash is showing
   await Promise.all([
     delay(1300),
     preloadImages(allImageUrls)
   ]);
-  // Fade out logo
+  // Fade out logo and version
   splashLogo.style.opacity = '0';
+  splashVersion.style.opacity = '0';
   // Fade out overlay
   splashOverlay.style.opacity = '0';
   setTimeout(() => {
